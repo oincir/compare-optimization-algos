@@ -1,0 +1,39 @@
+.Cards{
+  $base-margin: 10px;
+  $base-height: 400px;
+  $base-display: inline-flex;
+
+  padding: 0px;
+  margin : 15px;
+
+
+  .barChart{
+    display: $base-display;
+    width: 1200px;
+    height: $base-height;
+    margin: $base-margin;
+    box-sizing: border-box;
+
+  }
+  .pieChart{
+    display: $base-display;
+    width: 600px;
+    height: $base-height;
+    margin: $base-margin;
+  }
+
+  .statistics{
+    display: $base-display;
+    width: 200px;
+    height: $base-height;
+    margin: $base-margin;
+  }
+
+  .comparison{
+    display: $base-display;
+    width: 980px;
+    height: $base-height;
+    margin: $base-margin;
+  }
+
+}
