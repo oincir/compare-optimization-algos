@@ -7,7 +7,7 @@
   margin : 15px;
 
 
-  .barChart{
+  .lineChart{
     display: $base-display;
     width: 1200px;
     height: $base-height;
@@ -34,6 +34,15 @@
     width: 980px;
     height: $base-height;
     margin: $base-margin;
+    box-sizing: border-box;
+  }
+
+  .algo3dGraph{
+    display: $base-display;
+    width: 600px;
+    height: $base-height;
+    margin: $base-margin;
+    box-sizing: border-box;
   }
 
 }

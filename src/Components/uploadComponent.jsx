@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Card, Form, ProgressBar} from "react-bootstrap";
-import {Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 class UploadComponent extends Component {
     render() {
