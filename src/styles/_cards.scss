@@ -1,6 +1,6 @@
 .Cards{
   $base-margin: 10px;
-  $base-height: 400px;
+  $base-height: 420px;
   $base-display: inline-flex;
   align-content: center;
   align-items: center;
@@ -43,9 +43,8 @@
   .algo3dGraphCard{
     display: $base-display;
     width: 600px;
-    height: $base-height;
+    height: 600px;
     margin: $base-margin;
-    box-sizing: border-box;
   }
 
 }

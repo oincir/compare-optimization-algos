@@ -6,7 +6,7 @@ import Optimization from "./Pages/optimization";
 
 function App() {
   return (
-    <>
+    <div className={"App"}>
         {/*<Provider store={store}>*/}
             <BrowserRouter>
                 <Switch>
@@ -17,7 +17,7 @@ function App() {
             </BrowserRouter>
         {/*</Provider>*/}
 
-    </>
+    </div>
   );
 }
 
