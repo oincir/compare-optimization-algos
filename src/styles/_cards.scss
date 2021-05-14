@@ -2,42 +2,45 @@
   $base-margin: 10px;
   $base-height: 400px;
   $base-display: inline-flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 
   padding: 0px;
   margin : 15px;
 
 
-  .lineChart{
+  .lineChartCard{
     display: $base-display;
-    width: 1200px;
+    width: 1000px;
     height: $base-height;
     margin: $base-margin;
     box-sizing: border-box;
 
   }
-  .pieChart{
+  .radarChartCard{
     display: $base-display;
     width: 600px;
     height: $base-height;
     margin: $base-margin;
   }
 
-  .statistics{
+  .statisticsCard{
     display: $base-display;
     width: 200px;
     height: $base-height;
     margin: $base-margin;
   }
 
-  .comparison{
+  .comparisonCard{
     display: $base-display;
-    width: 980px;
+    width: 1000px;
     height: $base-height;
     margin: $base-margin;
     box-sizing: border-box;
   }
 
-  .algo3dGraph{
+  .algo3dGraphCard{
     display: $base-display;
     width: 600px;
     height: $base-height;

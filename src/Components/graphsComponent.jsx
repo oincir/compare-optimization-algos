@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card} from "react-bootstrap";
 import LineChart from "./lineChartComponent";
+import RadarChart from "./radarChartComponent";
 
 class GraphsComponent extends Component {
 
@@ -26,37 +27,39 @@ class GraphsComponent extends Component {
                 {
                     label: "Ant Colony Optimization",
                     data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
-                    fill: true,
+                    fill: false,
                     lineTension: 0.2,
-                    backgroundColor: ['rgba(241, 241, 92, 0.2)'],
+                    borderColor: ['rgba(241, 241, 92, 0.35)'],
                 },{
                     label: "Genetic Algorithm Optimization",
                     data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
-                    fill: true,
+                    fill: false,
+
                     lineTension: 0.2,
-                    backgroundColor: ['rgba(57, 162, 80, 0.2)'],
+                    borderColor: ['rgba(57, 162, 80, 0.35)'],
                 },{
                     label: "Whale Optimization Algorithm",
                     data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
-                    fill: true,
+                    fill: false,
                     lineTension: 0.2,
-                    backgroundColor: ['rgba(32, 54, 158, 0.2)'],
+                    borderColor: ['rgba(32, 54, 158, 0.35)'],
                 },{
                     label: "Grey Wolf Optimization Algorithm",
                     data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
-                    fill: true,
+                    fill: false,
                     lineTension: 0.2,
-                    backgroundColor: ['rgba(26, 137, 46, 0.2)'],
+                    borderColor: ['rgba(177, 45, 159, 0.35)'],
                 }
             ],
         };
     }
 
     render() {
+
         return (
             <>
                 <div className={"Cards"}>
-                        <Card className={"lineChart"}>
+                        <Card className={"lineChartCard"}>
                             <Card.Header>Line Chart</Card.Header>
                                 <Card.Body>
                                     {/*<Card.Title>Line Chart</Card.Title>*/}
@@ -66,15 +69,15 @@ class GraphsComponent extends Component {
                                 </Card.Body>
                         </Card>
 
-                        <Card className={"pieChart"}>
-                            <Card.Header>Pie Chart</Card.Header>
-                            <Card.Body>
-                                {/*<Card.Title>Pie Chart</Card.Title>*/}
-
+                        <Card className={"radarChartCard"}>
+                            <Card.Header>Radar Chart</Card.Header>
+                            <Card.Body className={"RadarChart"}>
+                                {/*<Card.Title> Chart</Card.Title>*/}
+                                    <RadarChart />
                             </Card.Body>
                         </Card>
 
-                        <Card className={"statistics"}>
+                        <Card className={"statisticsCard"}>
                             <Card.Header>Statistics</Card.Header>
                             <Card.Body>
                                 {/*<Card.Title>Statistics</Card.Title>*/}
@@ -82,7 +85,7 @@ class GraphsComponent extends Component {
                             </Card.Body>
                         </Card>
 
-                        <Card className={"comparison"}>
+                        <Card className={"comparisonCard"}>
                             <Card.Header>Comparisons</Card.Header>
                             <Card.Body>
                                 {/*<Card.Title>Comparisons</Card.Title>*/}
@@ -91,12 +94,12 @@ class GraphsComponent extends Component {
                                     </div>
                             </Card.Body>
                         </Card>
-                        <Card className={"algo3dGraph"}>
+                        <Card className={"algo3dGraphCard"}>
                             <Card.Header>3D Algorithm Graph</Card.Header>
                             <Card.Body>
                                 {/*<Card.Title>Comparisons</Card.Title>*/}
                                 <div className="3dGraph">
-                                {/*    3d graph goes here*/}
+
                                 </div>
                             </Card.Body>
                         </Card>
