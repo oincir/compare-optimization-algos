@@ -33,7 +33,7 @@ class OptAlgoOptionsComponent extends Component {
                             <div className="col-md">
                                 <div className="form-floating">
                                     <input type="text" className="form-control" id="floatingInputGrid"
-                                           placeholder="Parametre1" value="default" />
+                                           placeholder="Parametre1" />
                                         <label htmlFor="floatingInputGrid">Parametre 1</label>
                                 </div>
                             </div>
@@ -41,10 +41,10 @@ class OptAlgoOptionsComponent extends Component {
                                 <div className="form-floating">
                                     <select className="form-select" id="floatingSelectGrid"
                                             aria-label="Floating label select example">
-                                        <option selected value={"0"}>1</option>
-                                        <option value="1">3</option>
-                                        <option value="2">5</option>
-                                        <option value="3">7</option>
+                                        <option value={"1"}>1</option>
+                                        <option value="2">3</option>
+                                        <option value="3">5</option>
+                                        <option value="4">7</option>
                                     </select>
                                     <label htmlFor="floatingSelectGrid">Parametre 2</label>
                                 </div>
@@ -70,7 +70,7 @@ class OptAlgoOptionsComponent extends Component {
                                                 value 1
                                             </label>
                                     </div>
-                                    <div className="form-check disabled">
+                                    <div className="form-check">
                                         <input className="form-check-input" type="radio" name="gridRadios"
                                                id="gridRadios3" value="option3" />
                                             <label className="form-check-label" htmlFor="gridRadios3">
