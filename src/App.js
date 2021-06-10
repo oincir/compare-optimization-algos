@@ -6,10 +6,9 @@ import Optimization from "./Pages/optimization";
 
 import {Provider} from "react-redux";
 import {Component} from "react";
-import {ConfigureStore} from "./redux/configureStore";
+import {ConfigureStore} from "./redux/ConfigureStore";
 
 const store = ConfigureStore();
-
 
 class App extends Component{
     render() {
@@ -24,7 +23,6 @@ class App extends Component{
                     </Switch>
                 </BrowserRouter>
             </Provider>
-
         </div>
       );
     }
