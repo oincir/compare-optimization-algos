@@ -7,7 +7,7 @@
   justify-content: center;
 
   padding: 0px;
-  margin : 15px;
+  margin : 5px;
 
 
   .lineChartCard{
@@ -42,8 +42,8 @@
 
   .algo3dGraphCard{
     display: $base-display;
-    width: 600px;
-    height: 550px;
+    width: 500px;
+    height: $base-height;
     margin: $base-margin;
   }
 
