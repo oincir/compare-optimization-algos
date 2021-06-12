@@ -806,7 +806,7 @@ class Algo3DGraph extends Component {
             plot_bgcolor: '#c7c7c7'
         }
 
-        Plotly.newPlot('myDiv',
+        Plotly.newPlot('3dGraphDiv',
                         [{z: data ,type: 'surface'}],
                         layout )
     }
@@ -817,7 +817,7 @@ class Algo3DGraph extends Component {
         return (
             <>
                 <div className="3dGraph" style={{overflow: "hidden"}} >
-                    <div id={"myDiv"}/>
+                    <div id={"3dGraphDiv"}/>
                 </div>
             </>
         );

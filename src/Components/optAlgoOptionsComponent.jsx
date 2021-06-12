@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {Card, Container} from "react-bootstrap";
 
 class OptAlgoOptionsComponent extends Component {
+    updateTextInput(val) {
+        document.getElementById('textInput').value=val;
+    }
+
     render() {
         return (
             <Container>
@@ -18,14 +22,18 @@ class OptAlgoOptionsComponent extends Component {
                             <label htmlFor="floatingSelect">Optimizasyon Algoritmaları</label>
                         </div>
 
-
                         <div className="form-check form-switch mt-4">
                             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
                                 <label className="form-check-label text-muted" htmlFor="flexSwitchCheckDefault">Parametre On/Off</label>
                         </div>
 
                         <div className={"mt-4"}>
-                            <label htmlFor="customRange2" className="form-label">İterasyon Sayısı</label>
+                            <label htmlFor="customRange3" className="form-label">int range</label>
+                            <input type="range" className="form-range" min="0" max="10" step="1" id="customRange3" />
+                        </div>
+
+                        <div className={"mt-4"}>
+                            <label htmlFor="customRange2" className="form-label">float range</label>
                             <input type="range" className="form-range" min="0" max="100" id="customRange2" />
                         </div>
 
@@ -41,7 +49,7 @@ class OptAlgoOptionsComponent extends Component {
                                 <div className="form-floating">
                                     <select className="form-select" id="floatingSelectGrid"
                                             aria-label="Floating label select example">
-                                        <option value={"1"}>1</option>
+                                        <option value="1">1</option>
                                         <option value="2">3</option>
                                         <option value="3">5</option>
                                         <option value="4">7</option>

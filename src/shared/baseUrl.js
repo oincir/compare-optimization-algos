@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:3001/'; // change to aws url
+export const baseUrl = 'https://bishamon.ml/res/plots';
