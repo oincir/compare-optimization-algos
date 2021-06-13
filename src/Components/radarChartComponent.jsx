@@ -5,7 +5,6 @@ class RadarChartComponent extends Component {
 
     getData() {
         return {
-
             labels: ["Bitiş süresi(saniye)","En yüksek başarı","Param3","Param4","Param5"],
             datasets: [
                 {

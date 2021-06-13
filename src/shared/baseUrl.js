@@ -1,1 +1,0 @@
-export const baseUrl = 'https://bishamon.ml/res/plots';
