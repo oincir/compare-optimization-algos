@@ -5,7 +5,7 @@ class OptAlgoInfoChartComponent extends Component {
     componentDidMount() {
         const Plotly = window.Plotly
 
-        var data = [{
+        const data = [{
             type: "sunburst",
             ids: [
                 "North America", "Europe", "Australia", "North America - Football", "Soccer",

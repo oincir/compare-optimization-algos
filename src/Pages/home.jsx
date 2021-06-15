@@ -3,7 +3,8 @@ import Navbar from "../Components/navbarComponent";
 import Footer from "../Components/footerComponent";
 import OptAlgoOptions from "../Components/optAlgoOptionsComponent";
 import OptAlgoInfoChart from "../Components/optAlgoInfoChartComponent";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
+import OptAlgoInfoTable from "../Components/optAlgoInfoTableComponent";
 
 class Home extends Component {
     render() {
@@ -17,6 +18,7 @@ class Home extends Component {
                     </Col>
                     <Col>
                         <OptAlgoInfoChart />
+                        <OptAlgoInfoTable />
                     </Col>
                 </Row>
 
