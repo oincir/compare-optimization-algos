@@ -791,6 +791,15 @@ class Algo3DGraph extends Component {
                 11.039660112500966
             ]
         ]
+        const data2 = { x: [5 ], y: [35], z: [45] ,
+                        type: 'scatter3d',
+                        marker:{color: 'rgba(57, 255, 20,1)',
+                        size: 10,
+                            line: {
+                                color: 'rgb(11, 111, 250)',
+                                width: 10
+                            }
+                        }};
 
         const layout = {
             autosize: false,
@@ -808,7 +817,7 @@ class Algo3DGraph extends Component {
         }
 
         Plotly.newPlot('3dGraphDiv',
-                        [{z: data ,type: 'surface'}],
+                        [{z: data ,type: 'surface'},data2],
                         layout )
     }
 

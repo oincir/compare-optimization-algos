@@ -11,20 +11,13 @@ class GraphsComponent extends Component {
         super(props);
 
         this.state = {
-            plot: null,
-            error: null
         };
+
     }
-    async componentDidMount() {
+    componentDidMount() {
         const url = "http://bishamon.ml/res/plots/f1.json";
 
-        fetch(url, {
-            credentials: 'include',
-            method: 'GET',
-            headers:{
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        }).then(res => res.json())
+        fetch(url).then(res => res.json())
             .then(response => console.log('Success:', response))
             .catch(error => console.error('Error:', error));
     }
