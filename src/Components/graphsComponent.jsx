@@ -3,20 +3,73 @@ import {Card} from "react-bootstrap";
 import LineChart from "./lineChartComponent";
 import RadarChart from "./radarChartComponent";
 import Algo3DGraph from "./algo3dGraphComponent";
+import axios from "axios";
 
 class GraphsComponent extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            plot: null,
+            error: null
+        };
+    }
+
+    componentDidMount(){
+        this.fetchPlot();
+    }
+
+    fetchPlot = async () => {
+        const url = "http://bishamon.ml/res/plots/f1.json";
+
+        let response;
+        let payload;
+
+        try{
+            response = await fetch(url);
+            payload = await response.json();
+        }catch (err) {
+            //ağ hatası, yanlış url vs.
+            this.setState({
+                error: "HATA: Plot çekilemedi, "+ err,
+                plot: null
+            });
+            return;
+        }
+        if(response.status===200){
+            this.setState({
+                error:null,
+                movie:payload
+            });
+        } else {
+            this.setState({
+                error: "HTTP bağlantı hatası",
+                movie: null
+            })
+        }
+    }
+
     getData (){
         return {
-            labels: Array.from({length: 30}, (_, i) => i + 1),
+            labels: Array.from({length: 22}, (_, i) => i + 1),
             datasets: [
                 {
                     label: "Ant Colony Optimization",
-                    data: Array.from({length: 30}, () => Math.floor(Math.random() * 80)),
+                    data: [85, 72, 43, 28, 20,12,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1],
                     fill: true,
+                    stepped: true,
                     lineTension: 0.1,
                     pointRadius: 0,
-
+                    borderColor: ['rgba(117, 2, 155, 0.8)'],
+                },{
+                    label: "Genetic Optimization Algorithm",
+                    data: [70, 70, 69, 55, 55,42,40,30,28,25,10,10,8,8,7,7,7,4,4,4,4,4],
+                    fill: false,
+                    stepped: true,
+                    pointRadius: 0,
+                    lineTension: 0.2,
+                    borderColor: ['rgba(57, 162, 80, 0.8)'],
                 }
             ],
         };
@@ -24,39 +77,44 @@ class GraphsComponent extends Component {
 
     getDataMultiple(){
         return {
-            labels: Array.from({length: 15}, (_, i) => i + 1),
+            labels: Array.from({length: 22}, (_, i) => i + 1),
             datasets: [
                 {
                     label: "Ant Colony Optimization Algorithm",
-                    data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
+                    data: [85, 72, 43, 28, 20,12,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1],
                     fill: false,
-                    lineTension: 0.2,
-                    borderColor: ['rgba(241, 241, 92, 0.35)'],
+                    pointRadius: 0,
+                    lineTension: 0.4,
+                    borderColor: ['rgba(117, 2, 155, 0.8)'],
                 },{
                     label: "Genetic Optimization Algorithm",
-                    data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
+                    data: [70, 70, 69, 55, 55,42,40,30,28,25,10,10,8,8,7,7,7,2,2,2,2,2],
                     fill: false,
-
-                    lineTension: 0.2,
-                    borderColor: ['rgba(57, 162, 80, 0.35)'],
+                    pointRadius: 0,
+                    lineTension: 0.4,
+                    borderColor: ['rgba(57, 162, 80, 0.8)'],
                 },{
                     label: "Whale Optimization Algorithm",
-                    data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
+                    data: [95, 82, 73, 58, 40,22,20,19,18,13,13,13,8,8,8,8,8,8,8,8,7,7],
                     fill: false,
-                    lineTension: 0.2,
-                    borderColor: ['rgba(32, 54, 158, 0.35)'],
+                    pointRadius: 0,
+                    lineTension: 0.4,
+                    borderColor: ['rgba(32, 54, 158, 0.8)'],
                 },{
                     label: "Grey Wolf Optimization Algorithm",
-                    data: Array.from({length: 15}, () => Math.floor(Math.random() * 80)),
+                    data: [99, 89, 85, 45, 25,15,10,7,3,2,1,1,1,1,1,1,1,1,1,1,0,0],
                     fill: false,
-                    lineTension: 0.2,
-                    borderColor: ['rgba(177, 45, 159, 0.35)'],
+                    lineTension: 0.4,
+                    pointRadius: 0,
+                    borderColor: ['rgba(177, 245, 159, 0.8)'],
                 }
             ],
         };
     }
 
     render() {
+        console.log(this.state.error)
+        console.log("plot:" + this.state.plot)
         return (
             <>
                 <div className={"Cards"}>
@@ -83,7 +141,7 @@ class GraphsComponent extends Component {
                             <Card.Body>
                                 {/*<Card.Title>Statistics</Card.Title>*/}
                                 <h6>Bitiş süresi</h6><p> <span style={{color: 'red'}}>12</span> saniye</p>
-                                <h6>Toplam İterasyon sayısı</h6><p> 30 iterasyon</p>
+                                <h6>Toplam İterasyon sayısı</h6><p> 22 iterasyon</p>
                                 <h6>Başarı</h6><p style={{color: 'orange'}}> %74</p>
                                 <h6>En yakın Optimizasyon algoritmasına göre başarı</h6><p style={{color: 'green'}}>+%6</p>
                             </Card.Body>
@@ -98,6 +156,7 @@ class GraphsComponent extends Component {
                                     </div>
                             </Card.Body>
                         </Card>
+
                         <Card className={"algo3dGraphCard"}>
                             <Card.Header>3D Algorithm Graph</Card.Header>
                             <Card.Body>

@@ -6,18 +6,17 @@ import Optimization from "./Pages/optimization";
 
 import {Component} from "react";
 
-
 class App extends Component{
     render() {
         return (
         <div className={"App"}>
-                <BrowserRouter>
-                    <Switch>
-                        <Route path="/home" component={Home} />
-                        <Route path="/optimization" component={Optimization} />
-                        <Redirect to="/home" />
-                    </Switch>
-                </BrowserRouter>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/optimization" component={Optimization} />
+                    <Redirect to="/home" />
+                </Switch>
+            </BrowserRouter>
         </div>
       );
     }

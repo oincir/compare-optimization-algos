@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class Algo3DGraph extends Component {
 
     componentDidMount() {
+
         const Plotly = window.Plotly
         const data = [
             [
@@ -794,13 +795,13 @@ class Algo3DGraph extends Component {
         const layout = {
             autosize: false,
             width: 500,
-            height: 350,
+            height: 360,
             margin: {
-                l: 1,
-                r: 1,
-                b: 1,
-                t: 1,
-                pad: 1,
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 0,
+                pad: 0,
         },
             paper_bgcolor: '#ffffff',
             plot_bgcolor: '#c7c7c7'
@@ -811,14 +812,13 @@ class Algo3DGraph extends Component {
                         layout )
     }
 
-    render() {
 
+
+    render() {
 
         return (
             <>
-                <div className="3dGraph" style={{overflow: "hidden"}} >
-                    <div id={"3dGraphDiv"}/>
-                </div>
+                <div className="3dGraph" style={{overflow: "hidden"}} id={"3dGraphDiv"} > </div>
             </>
         );
     }

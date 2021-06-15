@@ -1,15 +1,44 @@
 import React, {Component} from 'react';
 import {Card, Container} from "react-bootstrap";
 
+
+
+const response = `[{"id":0,"name":"Population Size","type":"slider","lowerBound":10,"upperBound":1000,"defaultValue":100,"isContinuous":false,"filterExpression":"const result = x >= 10 && x <= 1000","e\
+xceptionMessage":"Population Size configuration value is invalid.","filterFunction":"(_=>{try{const x=%VALUE%;const result = x >= 10 && x <= 1000;return result;}catch(ex){throw Error(\
+'Population Size configuration value is invalid.');return false;}})();"},{"id":1,"name":"J","type":"slider","lowerBound":500,"upperBound":20000,"defaultValue":1000,"isContinuous":fals\
+e,"filterExpression":"const result = x >= 500 && x <= 20000","exceptionMessage":"J configuration value is invalid.","filterFunction":"(_=>{try{const x=%VALUE%;const result = x >= 500\
+&& x <= 20000;return result;}catch(ex){throw Error('J configuration value is invalid.');return false;}})();"},{"id":2,"name":"M","type":"slider","lowerBound":0.2,"upperBound":5,"defau\
+ltValue":2,"isContinuous":true,"filterExpression":"const result = x >= 0.2 && x <= 5","exceptionMessage":"M configuration value is invalid.","filterFunction":"(_=>{try{const x=%VALUE%\
+;const result = x >= 0.2 && x <= 5;return result;}catch(ex){throw Error('M configuration value is invalid.');return false;}})();"}]`;
+
+const parsed = JSON.parse(response);
+
+
+// <div className={"mt-4"}>
+//     <label htmlFor="customRange3" className="form-label">new param range</label>
+//     <input type="range" className="form-range" min={config.lowerBound} max={config.upperBound} step="1" id="customRange3" />
+// </div>
+
+
 class OptAlgoOptionsComponent extends Component {
-    updateTextInput(val) {
-        document.getElementById('textInput').value=val;
-    }
 
     render() {
+        function createOptions(){
+            let a = []
+            parsed.forEach(config => {
+
+                if (config.type === "slider"){
+                    a += <div>Success</div>
+                }
+                else
+                    console.log("nope")
+            });
+            return a
+        }
+
         return (
             <Container>
-                <Card className={"align-items-left flex border-0 m-3 "}>
+                <Card className={"align-items-center flex border-0 m-3 "}>
                     <Card.Body className={"col-md-4"}>
                         <div className="form-floating">
                             <select className="form-select" id="floatingSelect"
@@ -26,6 +55,10 @@ class OptAlgoOptionsComponent extends Component {
                             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
                                 <label className="form-check-label text-muted" htmlFor="flexSwitchCheckDefault">Parametre On/Off</label>
                         </div>
+
+                        {
+                            createOptions()
+                        }
 
                         <div className={"mt-4"}>
                             <label htmlFor="customRange3" className="form-label">int range</label>
@@ -88,7 +121,6 @@ class OptAlgoOptionsComponent extends Component {
                                 </div>
                             </fieldset>
                         </div>
-
                     </Card.Body>
                 </Card>
             </Container>
