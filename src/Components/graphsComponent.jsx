@@ -3,7 +3,7 @@ import {Card} from "react-bootstrap";
 import LineChart from "./lineChartComponent";
 import RadarChart from "./radarChartComponent";
 import Algo3DGraph from "./algo3dGraphComponent";
-import axios from "axios";
+
 
 class GraphsComponent extends Component {
 
@@ -15,40 +15,20 @@ class GraphsComponent extends Component {
             error: null
         };
     }
-
-    componentDidMount(){
-        this.fetchPlot();
-    }
-
-    fetchPlot = async () => {
+    async componentDidMount() {
         const url = "http://bishamon.ml/res/plots/f1.json";
 
-        let response;
-        let payload;
-
-        try{
-            response = await fetch(url);
-            payload = await response.json();
-        }catch (err) {
-            //ağ hatası, yanlış url vs.
-            this.setState({
-                error: "HATA: Plot çekilemedi, "+ err,
-                plot: null
-            });
-            return;
-        }
-        if(response.status===200){
-            this.setState({
-                error:null,
-                movie:payload
-            });
-        } else {
-            this.setState({
-                error: "HTTP bağlantı hatası",
-                movie: null
-            })
-        }
+        fetch(url, {
+            credentials: 'include',
+            method: 'GET',
+            headers:{
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        }).then(res => res.json())
+            .then(response => console.log('Success:', response))
+            .catch(error => console.error('Error:', error));
     }
+
 
     getData (){
         return {
@@ -113,8 +93,7 @@ class GraphsComponent extends Component {
     }
 
     render() {
-        console.log(this.state.error)
-        console.log("plot:" + this.state.plot)
+
         return (
             <>
                 <div className={"Cards"}>

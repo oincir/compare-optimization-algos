@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Container} from "react-bootstrap";
-
-
+import {Card, Col, Container, Row} from "react-bootstrap";
 
 const response = `[{"id":0,"name":"Population Size","type":"slider","lowerBound":10,"upperBound":1000,"defaultValue":100,"isContinuous":false,"filterExpression":"const result = x >= 10 && x <= 1000","e\
 xceptionMessage":"Population Size configuration value is invalid.","filterFunction":"(_=>{try{const x=%VALUE%;const result = x >= 10 && x <= 1000;return result;}catch(ex){throw Error(\
@@ -13,33 +11,39 @@ ltValue":2,"isContinuous":true,"filterExpression":"const result = x >= 0.2 && x 
 
 const parsed = JSON.parse(response);
 
-
-// <div className={"mt-4"}>
-//     <label htmlFor="customRange3" className="form-label">new param range</label>
-//     <input type="range" className="form-range" min={config.lowerBound} max={config.upperBound} step="1" id="customRange3" />
-// </div>
-
-
 class OptAlgoOptionsComponent extends Component {
+    constructor (props) {
+        super (props);
+        this.state = {
+            options : parsed,
+        }
+    }
 
     render() {
         function createOptions(){
-            let a = []
+            let options = []
             parsed.forEach(config => {
 
                 if (config.type === "slider"){
-                    a += <div>Success</div>
+                    options.push(
+                            <div className={"mt-4 col-md-10"}>
+                                <label htmlFor="customRanges" className="form-label">{config.name} configuration {" ("+config.lowerBound+" - "+config.upperBound+")"}</label>
+                                <input type="range" className="form-range" min={config.lowerBound} max={config.upperBound} defaultValue={config.defaultValue} step={(config.isContinuous) ? 0.1 : 1} id="customRanges"  onChange={event => document.getElementById("rangeval"+config.id).innerText = event.target.value}  />
+                                <label id={"rangeval"+config.id}>{config.defaultValue}</label>
+                            </div>
+                    )
                 }
                 else
-                    console.log("nope")
+                    options.push(<div>Error</div>)
             });
-            return a
+            return options
         }
 
+
         return (
-            <Container>
-                <Card className={"align-items-center flex border-0 m-3 "}>
-                    <Card.Body className={"col-md-4"}>
+            <Container >
+                <Card className={"align-items-center flex border-0 m-4"}>
+                    <Card.Body className={"col-md-7 Options"}>
                         <div className="form-floating">
                             <select className="form-select" id="floatingSelect"
                                     aria-label="Floating label select example">
@@ -56,18 +60,19 @@ class OptAlgoOptionsComponent extends Component {
                                 <label className="form-check-label text-muted" htmlFor="flexSwitchCheckDefault">Parametre On/Off</label>
                         </div>
 
-                        {
-                            createOptions()
-                        }
+                        {/*Dynamic option display*/}
+                            {createOptions()}
 
                         <div className={"mt-4"}>
                             <label htmlFor="customRange3" className="form-label">int range</label>
-                            <input type="range" className="form-range" min="0" max="10" step="1" id="customRange3" />
+                                <input type="range" className="form-range" min="0" max="10" step="1" id="customRange3" onChange={event => document.getElementById("rangevalint").innerText = event.target.value} />
+                            <label id="rangevalint">0</label>
                         </div>
 
                         <div className={"mt-4"}>
                             <label htmlFor="customRange2" className="form-label">float range</label>
-                            <input type="range" className="form-range" min="0" max="100" id="customRange2" />
+                            <input type="range" className="form-range" min="0" max="100" id="customRange2" step="0.1" onChange={event => document.getElementById("rangevalfloat").innerText = event.target.value} />
+                            <label id="rangevalfloat">0</label>
                         </div>
 
                         <div className="row g-2 mt-4">
@@ -92,35 +97,6 @@ class OptAlgoOptionsComponent extends Component {
                             </div>
                         </div>
 
-
-                        <div>
-                            <fieldset className="row mb-3 mt-4">
-                                <legend className="col-form-label col-sm-4 pt-0">Parametreler</legend>
-                                <div className="col-sm-10">
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios"
-                                               id="gridRadios1" value="option1" checked />
-                                            <label className="form-check-label" htmlFor="gridRadios1">
-                                                Default
-                                            </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios"
-                                               id="gridRadios2" value="option2" />
-                                            <label className="form-check-label" htmlFor="gridRadios2">
-                                                value 1
-                                            </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="gridRadios"
-                                               id="gridRadios3" value="option3" />
-                                            <label className="form-check-label" htmlFor="gridRadios3">
-                                                value 2
-                                            </label>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
                     </Card.Body>
                 </Card>
             </Container>
