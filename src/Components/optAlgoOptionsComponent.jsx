@@ -26,7 +26,7 @@ class OptAlgoOptionsComponent extends Component {
 
                 if (config.type === "slider"){
                     options.push(
-                            <div className={"mt-4 col-md-10"}>
+                            <div className={"mt-4 "}>
                                 <label htmlFor="customRanges" className="form-label">{config.name} configuration {" ("+config.lowerBound+" - "+config.upperBound+")"}</label>
                                 <input type="range" className="form-range" min={config.lowerBound} max={config.upperBound} defaultValue={config.defaultValue} step={(config.isContinuous) ? 0.1 : 1} id="customRanges"  onChange={event => document.getElementById("rangeval"+config.id).innerText = event.target.value}  />
                                 <label id={"rangeval"+config.id}>{config.defaultValue}</label>

@@ -15,13 +15,12 @@ class GraphsComponent extends Component {
 
     }
     componentDidMount() {
-        const url = "http://bishamon.ml/res/plots/f1.json";
+        const url = "http://bishamon.ml:8086/api/plot/get/f1";
 
         fetch(url).then(res => res.json())
             .then(response => console.log('Success:', response))
             .catch(error => console.error('Error:', error));
     }
-
 
     getData (){
         return {
